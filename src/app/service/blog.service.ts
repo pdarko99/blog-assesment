@@ -13,7 +13,7 @@ export class BlogService {
   private http = inject(HttpClient);
 
   currentPage = signal(1);
-  postsPerPage = signal(1);
+  postsPerPage = signal(3);
   filteredValue = signal('');
 
   public readonly selectBlogs$ = selectBlogDataSource$.pipe(
