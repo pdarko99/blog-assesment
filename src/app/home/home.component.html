@@ -1,0 +1,26 @@
+<app-header />
+<main>
+  <section class="intro">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>search blog</mat-label>
+        <input matInput #search (keyup)="onSearchKeyUp(search.value)" placeholder="eg. Anima" />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <section class="blogs">
+    @for (blog of paginatedBlogs(); track $index) {
+    <app-blog [receivedBlog]="blog" />
+    }
+    <div>
+      <mat-paginator
+        [length]="allBlogs().length"
+        [pageSize]="postsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onChangedPage($event)"
+      ></mat-paginator>
+    </div>
+  </section>
+</main>

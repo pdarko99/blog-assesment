@@ -1,0 +1,22 @@
+.card-container {
+  width: 60%;
+  margin: auto;
+}
+
+.detail-card {
+  width: 100%;
+  margin-top: 3em;
+
+  mat-card-header {
+    margin-bottom: 2em;
+  }
+  mat-card-content{
+    margin-bottom: 1em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .card-container {
+    width: 90%;
+  }
+}

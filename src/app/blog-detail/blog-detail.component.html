@@ -1,0 +1,18 @@
+<app-header />
+
+<div class="card-container">
+  <mat-card class="detail-card">
+    <mat-card-header>
+      <mat-card-title>{{selectedBlog.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{selectedBlog.content}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button color="warn" [disabled]="showLoading()" (click)="deleteBlog()">Delete</button>
+      <button mat-raised-button color="primary" [disabled]="showLoading()" (click)="updateBlog()">Update</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

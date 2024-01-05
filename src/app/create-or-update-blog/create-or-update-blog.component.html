@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Create Blog</h1>
+<mat-dialog-content class="mat-typography">
+  <form (submit)="onSubmit(blogForm)" #blogForm="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input
+        name="title"
+        [(ngModel)]="blogData.title"
+        #titleInput="ngModel"
+        matInput
+        required
+        placeholder="Title"
+      />
+      @if(titleInput.invalid && titleInput.touched){
+      <mat-error>please title is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Content</mat-label>
+      <textarea
+        name="content"
+        [(ngModel)]="blogData.content"
+        #contentInput="ngModel"
+        matInput
+        required
+      ></textarea>
+      @if(contentInput.invalid && contentInput.touched){
+      <mat-error>please content is required</mat-error>
+      }
+    </mat-form-field>
+
+    <button type="submit" #submitBtn style="display: none"></button>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-button
+    cdkFocusInitial
+    [disabled]="blogForm.invalid || showLoading()"
+    (click)="submitBtn.click()"
+  >
+    {{ blogData.id ? "update blog " : "Create Blog" }}
+  </button>
+</mat-dialog-actions>
